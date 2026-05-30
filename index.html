@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>All Saints' Bistro — A café in a 12th-century church, Northampton</title>
+<meta name="description" content="All Saints' Bistro — cream teas, hearty breakfasts and jacket potatoes served daily in the Narthex of All Saints' Church, George Row, Northampton. Open 9 to 4, seven days a week.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tenor+Sans&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --vellum:#F4ECDA;
+    --tea:#EAE0CB;
+    --ink:#1F1812;
+    --walnut:#3B2A1E;
+    --burgundy:#7B2230;
+    --brass:#9B8848;
+    --rule:rgba(31,24,18,.18);
+    --display:"Tenor Sans","Trajan Pro",Georgia,serif;
+    --body:"EB Garamond","Hoefler Text",Georgia,serif;
+    --rhythm:clamp(1.02rem,.65rem + .9vw,1.18rem);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--vellum);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:var(--rhythm);
+    line-height:1.55;
+    font-feature-settings:"liga","onum","kern";
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  /* vellum grain */
+  body::before{
+    content:"";
+    position:fixed;inset:0;
+    pointer-events:none;
+    background-image:
+      radial-gradient(rgba(59,42,30,.05) 1px,transparent 1px),
+      radial-gradient(rgba(59,42,30,.04) 1px,transparent 1px);
+    background-size:3px 3px,7px 7px;
+    background-position:0 0,1px 2px;
+    mix-blend-mode:multiply;
+    opacity:.55;
+    z-index:1;
+  }
+  main,header,footer,section{position:relative;z-index:2}
+
+  h1,h2,h3,h4{
+    font-family:var(--display);
+    font-weight:400;
+    letter-spacing:.02em;
+    text-wrap:balance;
+    line-height:1.05;
+    color:var(--ink);
+  }
+  p{text-wrap:pretty;hyphens:auto}
+
+  a{color:inherit}
+  a.lined{
+    text-decoration:none;
+    background-image:linear-gradient(currentColor,currentColor);
+    background-size:100% 1px;
+    background-repeat:no-repeat;
+    background-position:0 100%;
+    padding-bottom:2px;
+    transition:background-size .3s ease;
+  }
+  a.lined:hover{background-size:100% 2px}
+
+  .wrap{max-width:1240px;margin:0 auto;padding:0 clamp(1.2rem,3vw,2.4rem)}
+  .rule{border:0;border-top:1px solid var(--rule);margin:0}
+  .rule--brass{border-top-color:var(--brass);opacity:.55}
+  .small-caps{font-family:var(--display);font-size:.78rem;letter-spacing:.32em;text-transform:uppercase}
+  .ornament{font-family:var(--display);color:var(--brass);letter-spacing:.6em}
+
+  /* ─── Top bar ─── */
+  .topbar{
+    padding:1.1rem 0 1rem;
+    border-bottom:1px solid var(--rule);
+  }
+  .topbar__grid{
+    display:grid;
+    grid-template-columns:1fr auto 1fr;
+    gap:1rem;align-items:center;
+  }
+  .topbar__mark{
+    font-family:var(--display);
+    font-size:.92rem;
+    letter-spacing:.34em;
+    text-transform:uppercase;
+  }
+  .topbar__status{
+    justify-self:center;
+    font-family:var(--body);
+    font-style:italic;
+    font-size:.95rem;
+    color:var(--walnut);
+  }
+  .topbar__status::before{
+    content:"";
+    display:inline-block;
+    width:.5rem;height:.5rem;border-radius:50%;
+    background:var(--burgundy);
+    margin-right:.55rem;transform:translateY(-1px);
+    box-shadow:0 0 0 3px rgba(123,34,48,.18);
+  }
+  .topbar__loc{
+    justify-self:end;
+    font-size:.95rem;font-style:italic;color:var(--walnut);
+  }
+  @media (max-width:720px){
+    .topbar__grid{grid-template-columns:1fr;justify-items:center;text-align:center;gap:.5rem}
+    .topbar__loc,.topbar__status{justify-self:center}
+  }
+
+  /* ─── Hero ─── */
+  .hero{
+    padding:clamp(3rem,9vw,7rem) 0 clamp(2rem,5vw,3.5rem);
+    position:relative;
+  }
+  .hero__eyebrow{
+    display:flex;align-items:center;gap:1rem;
+    margin-bottom:clamp(1.5rem,4vw,2.5rem);
+    color:var(--walnut);
+  }
+  .hero__eyebrow span:first-child{flex:0 0 auto}
+  .hero__eyebrow::after{
+    content:"";flex:1 1 auto;height:1px;background:var(--rule);
+  }
+  .hero__title{
+    font-size:clamp(3rem,11vw,9.2rem);
+    line-height:.92;
+    letter-spacing:.01em;
+    text-transform:uppercase;
+  }
+  .hero__title em{
+    font-family:var(--body);
+    font-style:italic;
+    text-transform:none;
+    color:var(--burgundy);
+    font-weight:500;
+    letter-spacing:0;
+  }
+  .hero__grid{
+    margin-top:clamp(2rem,5vw,3.4rem);
+    display:grid;
+    grid-template-columns:1.1fr 1fr;
+    gap:clamp(2rem,5vw,4rem);
+    align-items:end;
+  }
+  @media (max-width:820px){
+    .hero__grid{grid-template-columns:1fr;gap:2rem}
+  }
+  .hero__lede{
+    font-size:clamp(1.18rem,.9rem + .8vw,1.5rem);
+    line-height:1.45;
+    color:var(--walnut);
+    max-width:36ch;
+  }
+  .hero__lede strong{font-weight:500;color:var(--ink)}
+  .hero__meta{
+    font-family:var(--display);
+    font-size:.84rem;
+    letter-spacing:.3em;
+    text-transform:uppercase;
+    color:var(--walnut);
+    display:grid;grid-template-columns:auto 1fr;gap:.5rem 1.2rem;
+    align-content:end;
+  }
+  .hero__meta dt{font-weight:400}
+  .hero__meta dd{font-family:var(--body);font-style:italic;letter-spacing:0;text-transform:none;font-size:1.05rem}
+
+  /* ─── Marquee ─── */
+  .marquee{
+    overflow:hidden;
+    border-block:1px solid var(--rule);
+    background:var(--tea);
+    padding:1rem 0;
+    --speed:48s;
+  }
+  .marquee__track{
+    display:inline-flex;gap:3rem;white-space:nowrap;
+    animation:scroll var(--speed) linear infinite;
+    font-family:var(--display);
+    font-size:1rem;letter-spacing:.36em;text-transform:uppercase;
+    color:var(--walnut);
+  }
+  .marquee__item{display:inline-flex;align-items:center;gap:3rem}
+  .marquee__item::after{content:"✦";color:var(--brass);font-size:.7rem}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+  @media (prefers-reduced-motion:reduce){
+    .marquee__track{animation:none}
+  }
+
+  /* ─── Section base ─── */
+  section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+  .section-head{
+    display:grid;grid-template-columns:1fr 2fr;gap:clamp(1.5rem,4vw,3rem);
+    margin-bottom:clamp(2rem,5vw,3.5rem);
+    align-items:baseline;
+  }
+  @media (max-width:760px){
+    .section-head{grid-template-columns:1fr;gap:1rem}
+  }
+  .section-head__num{
+    font-family:var(--display);
+    font-size:.84rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--brass);
+  }
+  .section-head__num::after{
+    content:"";display:block;width:3rem;height:1px;background:currentColor;margin-top:.6rem;
+  }
+  .section-head h2{
+    font-size:clamp(2.1rem,5vw,3.8rem);
+    text-transform:uppercase;
+    letter-spacing:.015em;
+  }
+  .section-head h2 em{font-family:var(--body);font-style:italic;text-transform:none;color:var(--burgundy);letter-spacing:0;font-weight:500}
+
+  /* ─── Story ─── */
+  .story__body{
+    display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);
+  }
+  @media (max-width:760px){.story__body{grid-template-columns:1fr}}
+  .story p{
+    font-size:clamp(1.1rem,.9rem + .55vw,1.4rem);
+    line-height:1.55;
+    margin-bottom:1.1em;
+    color:var(--walnut);
+  }
+  .story__pull{
+    border-left:3px solid var(--burgundy);
+    padding:1rem 0 1rem 1.6rem;
+    font-family:var(--display);
+    font-size:clamp(1.2rem,1rem + .8vw,1.7rem);
+    color:var(--ink);
+    line-height:1.3;
+    letter-spacing:.01em;
+    text-transform:uppercase;
+  }
+  .story__pull em{
+    font-family:var(--body);
+    font-style:italic;
+    text-transform:none;
+    color:var(--burgundy);
+    letter-spacing:0;
+    font-weight:500;
+  }
+  .story__sig{
+    margin-top:1.6rem;
+    font-style:italic;
+    color:var(--walnut);
+  }
+  .story__sig::before{content:"— "}
+
+  /* ─── Menu (broadsheet) ─── */
+  .menu{background:var(--tea);position:relative}
+  .menu::before,.menu::after{
+    content:"";position:absolute;left:0;right:0;height:1px;background:var(--rule);
+  }
+  .menu::before{top:0}.menu::after{bottom:0}
+  .menu__grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:clamp(2rem,4vw,3.5rem) clamp(2.5rem,6vw,5rem);
+  }
+  @media (max-width:760px){.menu__grid{grid-template-columns:1fr}}
+  .menu__col h3{
+    font-size:1.15rem;
+    letter-spacing:.36em;
+    text-transform:uppercase;
+    padding-bottom:.7rem;
+    border-bottom:1px solid var(--brass);
+    margin-bottom:1.1rem;
+    color:var(--ink);
+  }
+  .menu__list{list-style:none}
+  .menu__list li{
+    padding:.55rem 0;
+    border-bottom:1px dotted var(--rule);
+    font-size:1.06rem;
+    line-height:1.4;
+  }
+  .menu__list li:last-child{border-bottom:0}
+  .menu__list li i{
+    display:block;
+    font-family:var(--body);
+    font-style:italic;
+    font-size:.92rem;
+    color:var(--walnut);
+    margin-top:.15rem;
+  }
+  .menu__note{
+    grid-column:1/-1;
+    text-align:center;
+    margin-top:1.5rem;
+    font-style:italic;
+    color:var(--walnut);
+    font-size:.98rem;
+  }
+
+  /* ─── Visit (burgundy slab) ─── */
+  .visit{
+    background:var(--burgundy);
+    color:var(--vellum);
+  }
+  .visit *{color:var(--vellum)}
+  .visit .section-head__num{color:#E8C5A0}
+  .visit .section-head h2 em{color:#F2D7A6}
+  .visit__grid{
+    display:grid;grid-template-columns:1.2fr 1fr;gap:clamp(2rem,5vw,4rem);
+    align-items:start;
+  }
+  @media (max-width:820px){.visit__grid{grid-template-columns:1fr}}
+  .visit__address{
+    font-size:clamp(1.4rem,1rem + 1.4vw,2.4rem);
+    font-family:var(--display);
+    line-height:1.25;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+  }
+  .visit__address em{
+    font-family:var(--body);
+    font-style:italic;
+    text-transform:none;
+    letter-spacing:0;
+    font-size:.78em;
+    color:#F2D7A6;
+    display:block;
+    margin-top:.4rem;
+  }
+  .visit__hours{
+    border-left:1px solid rgba(244,236,218,.3);
+    padding-left:clamp(1.2rem,3vw,2rem);
+  }
+  .visit__hours h3{
+    font-size:.85rem;letter-spacing:.32em;text-transform:uppercase;
+    margin-bottom:1rem;color:#F2D7A6;
+  }
+  .visit__hours dl{
+    display:grid;grid-template-columns:auto 1fr;gap:.45rem 1.5rem;
+    font-size:1.1rem;
+  }
+  .visit__hours dt{font-style:italic;color:#F2D7A6}
+  .visit__hours dd{font-family:var(--display);letter-spacing:.04em}
+  .visit__note{
+    margin-top:1.8rem;
+    font-style:italic;
+    line-height:1.5;
+    max-width:36ch;
+    opacity:.92;
+  }
+
+  /* ─── Footer (letterhead) ─── */
+  footer{
+    padding:clamp(3rem,6vw,5rem) 0 2.5rem;
+    border-top:1px solid var(--rule);
+  }
+  .footer__grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:clamp(2rem,5vw,3.5rem);
+    align-items:start;
+  }
+  @media (max-width:760px){.footer__grid{grid-template-columns:1fr;gap:2rem}}
+  .footer__mark{
+    font-family:var(--display);
+    font-size:clamp(1.6rem,1.1rem + 1.2vw,2.4rem);
+    letter-spacing:.06em;
+    text-transform:uppercase;
+    line-height:1.15;
+  }
+  .footer__mark em{
+    display:block;
+    font-family:var(--body);
+    font-style:italic;
+    text-transform:none;
+    letter-spacing:0;
+    color:var(--burgundy);
+    font-size:.6em;
+    margin-top:.4rem;
+  }
+  .footer__col h4{
+    font-size:.8rem;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--brass);margin-bottom:.9rem;
+  }
+  .footer__col p,.footer__col a{
+    font-size:1rem;
+    line-height:1.55;
+    color:var(--walnut);
+  }
+  .footer__col a{display:inline-block;margin-top:.25rem}
+  .footer__bottom{
+    margin-top:clamp(2.5rem,5vw,3.5rem);
+    padding-top:1.5rem;
+    border-top:1px solid var(--rule);
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;
+    font-size:.85rem;font-style:italic;color:var(--walnut);
+  }
+
+  /* scroll reveal */
+  @supports (animation-timeline:view()){
+    .reveal{
+      animation:rise both;
+      animation-timeline:view();
+      animation-range:entry 0% cover 25%;
+    }
+    @keyframes rise{
+      from{opacity:0;transform:translateY(1.6rem)}
+      to{opacity:1;transform:translateY(0)}
+    }
+  }
+  @media (prefers-reduced-motion:reduce){
+    .reveal{animation:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar__grid">
+    <div class="topbar__mark">All Saints' Bistro</div>
+    <div class="topbar__status">Open today &mdash; 9 till 4</div>
+    <div class="topbar__loc">George Row · Northampton</div>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero__eyebrow">
+        <span class="small-caps">Est. in the Narthex</span>
+        <span class="ornament">✦ ✦ ✦</span>
+      </div>
+
+      <h1 class="hero__title">
+        Tea, toast<br>
+        &amp; <em>twelfth-century</em><br>
+        stone.
+      </h1>
+
+      <div class="hero__grid">
+        <p class="hero__lede">
+          A <strong>warm, welcoming café</strong> tucked inside the modernised Narthex of All Saints' Church &mdash; a small, passionate team serving cream teas, hearty breakfasts and freshly made lunches, seven days a week.
+        </p>
+        <dl class="hero__meta">
+          <dt>Where</dt><dd>George Row, NN1 1DF</dd>
+          <dt>Hours</dt><dd>9.00 — 4.00, daily</dd>
+          <dt>Inside</dt><dd>All Saints' Church</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span class="marquee__item">Open daily 9 to 4</span>
+      <span class="marquee__item">Cream teas</span>
+      <span class="marquee__item">Hearty breakfasts</span>
+      <span class="marquee__item">Jacket potatoes</span>
+      <span class="marquee__item">Extra-large fluffy muffins</span>
+      <span class="marquee__item">Cozy in, serene out</span>
+      <span class="marquee__item">Open daily 9 to 4</span>
+      <span class="marquee__item">Cream teas</span>
+      <span class="marquee__item">Hearty breakfasts</span>
+      <span class="marquee__item">Jacket potatoes</span>
+      <span class="marquee__item">Extra-large fluffy muffins</span>
+      <span class="marquee__item">Cozy in, serene out</span>
+    </div>
+  </div>
+
+  <section class="story" id="story">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-head__num">i. &nbsp;The House</div>
+        <h2>A café <em>built into</em> a church.</h2>
+      </div>
+
+      <div class="story__body">
+        <div class="reveal">
+          <p>
+            Since the transformative refurbishment of the Narthex in the 1960s, All Saints' Church has been home to a warm welcoming café — a small, hospitable kitchen where the parish, the passing visitor and the office worker on a quick lunch break sit side by side.
+          </p>
+          <p>
+            The Bistro is helmed by a small, passionate team committed to serving you seven days a week. Inside the original stone walls there is cosy seating; out under the portico there are tables set in the open air, looking onto George Row.
+          </p>
+          <p class="story__sig">Craig Ryan, proprietor</p>
+        </div>
+
+        <div class="reveal">
+          <div class="story__pull">
+            “An ideal ambience for <em>unwinding</em>, reconnecting with friends and family.”
+          </div>
+          <p style="margin-top:1.6rem;">
+            What's on the counter changes with the day — but expect freshly baked scones for a proper cream tea, extra-large fluffy muffins still warm from the oven, jacket potatoes with assorted toppings, and rolls and sandwiches made to order.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule rule--brass">
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-head__num">ii. &nbsp;On the Counter</div>
+        <h2>A daily <em>broadsheet</em> of small comforts.</h2>
+      </div>
+
+      <div class="menu__grid">
+
+        <div class="menu__col reveal">
+          <h3>Breakfast</h3>
+          <ul class="menu__list">
+            <li>Hearty cooked breakfast<i>The full plate — until midday.</i></li>
+            <li>Bacon &amp; egg roll<i>On a freshly baked bap.</i></li>
+            <li>Toasted teacake<i>Buttered, on the warm side.</i></li>
+            <li>Porridge of the morning<i>From the steam pan.</i></li>
+          </ul>
+        </div>
+
+        <div class="menu__col reveal">
+          <h3>Lunch</h3>
+          <ul class="menu__list">
+            <li>Jacket potato<i>With assorted toppings, salad on the side.</i></li>
+            <li>Freshly prepared sandwiches &amp; rolls<i>Made to order on the counter.</i></li>
+            <li>Soup of the day<i>Ask the kitchen — it changes.</i></li>
+          </ul>
+        </div>
+
+        <div class="menu__col reveal">
+          <h3>Cream Teas &amp; Cake</h3>
+          <ul class="menu__list">
+            <li>Traditional cream tea<i>Scones, jam &amp; clotted cream, pot of tea.</i></li>
+            <li>Extra-large fluffy muffins<i>Baked in-house.</i></li>
+            <li>Cakes &amp; cookies<i>What's on the counter today.</i></li>
+            <li>Indulgent slices<i>For the long afternoon.</i></li>
+          </ul>
+        </div>
+
+        <div class="menu__col reveal">
+          <h3>From the Bar</h3>
+          <ul class="menu__list">
+            <li>Filter coffee &amp; espresso<i>Hot and proper.</i></li>
+            <li>Loose-leaf tea<i>Pot for one, pot for two.</i></li>
+            <li>Cold drinks<i>For the warmer side of the portico.</i></li>
+            <li>Hot chocolate<i>For rainy Northampton afternoons.</i></li>
+          </ul>
+        </div>
+
+        <p class="menu__note">
+          The counter changes daily. The descriptions above are a guide; do come in and see what's just come out of the oven.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="section-head__num">iii. &nbsp;Finding Us</div>
+        <h2>On George Row, <em>inside</em> the church.</h2>
+      </div>
+
+      <div class="visit__grid">
+        <address class="visit__address reveal">
+          All Saints' Bistro<br>
+          George Row<br>
+          Northampton NN1 1DF
+          <em>Look for the portico of All Saints' Church — the Bistro is in the Narthex, just inside the main doors.</em>
+        </address>
+
+        <div class="visit__hours reveal">
+          <h3>Opening Times</h3>
+          <dl>
+            <dt>Monday</dt><dd>9 — 4</dd>
+            <dt>Tuesday</dt><dd>9 — 4</dd>
+            <dt>Wednesday</dt><dd>9 — 4</dd>
+            <dt>Thursday</dt><dd>9 — 4</dd>
+            <dt>Friday</dt><dd>9 — 4</dd>
+            <dt>Saturday</dt><dd>9 — 4</dd>
+            <dt>Sunday</dt><dd>9 — 4</dd>
+          </dl>
+          <p class="visit__note">
+            Privately run within All Saints' Church Northampton. For temporary closures or service changes, do check our Facebook page before setting off.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer__grid">
+
+      <div class="footer__mark">
+        All Saints'<br>
+        Bistro
+        <em>A café in the Narthex of All Saints' Church, Northampton.</em>
+      </div>
+
+      <div class="footer__col">
+        <h4>Address</h4>
+        <p>
+          George Row<br>
+          Northampton<br>
+          NN1 1DF
+        </p>
+      </div>
+
+      <div class="footer__col">
+        <h4>Find Us Elsewhere</h4>
+        <p>
+          <a class="lined" href="https://www.facebook.com/AllSaintsBistro/" rel="noopener">Facebook &mdash; @AllSaintsBistro</a><br>
+          <a class="lined" href="https://www.allsaintsnorthampton.co.uk/about_the-church_all-saints-bistro.php" rel="noopener">All Saints' Church website</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="footer__bottom">
+      <span>© All Saints' Bistro · A privately run café inside All Saints' Church, Northampton.</span>
+      <span>Open seven days, 9 till 4.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
